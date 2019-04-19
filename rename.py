@@ -13,7 +13,9 @@ def rename():
     	if filetype != '.c':
     		continue
     	# change from PAT-1001 to PAT_1001
-    	new_filename = "PAT_" + filename[4] + filename[5] + filename[6] + filename[7]
+    	fn_list = list(filename)
+        fn_list[3] = '*'
+        new_filename = ''.join(fn_list)
     	new_dir = os.path.join(path, new_filename + filetype)
     	os.rename(old_dir, new_dir)
 
