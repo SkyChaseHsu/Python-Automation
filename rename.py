@@ -13,9 +13,13 @@ def rename():
     	if filetype != '.c':
     		continue
     	# change from PAT-1001 to PAT_1001
+        # - We cannot change the char in the string directly
+        # - So we turn it in the list, change the  element in the list,
+        # - and them turn it into string
     	fn_list = list(filename)
-        fn_list[3] = '*'
+        fn_list[3] = '_'
         new_filename = ''.join(fn_list)
+
     	new_dir = os.path.join(path, new_filename + filetype)
     	os.rename(old_dir, new_dir)
 
